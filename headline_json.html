@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Membaca File Json</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $.get('headline.json', function(obj){
+                var str="<table border=1>";
+                str+="<tr><td>No</td><td>Judul Headline<td>Waktu Scrapping</td><td>Tema</td><td>Waktu Publish</td></td></tr>";
+                $.each(obj, function(n, data){
+                    str+="<tr><td>" + (n+1) + "</td>";
+                    str+="<td>" + data.judul + "</td></tr>";
+                });
+                str+="</tabel>";
+                $('#headline_json').html(str);
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="img\ilhae.jpg" alt="logo">
+            <p>breadmaker</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="headline_json.html">Web Scrapping Republika</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1> Menampilkan Republika Online </h1>
+    <div id="headline_json"></div>
+</body>
+</html>
